@@ -107,10 +107,6 @@ class ReviewDetail(models.Model):
         return f"{self.review.source.name} - {self.review.synergy_id} - {self.item} - {self.rating}"
 
     @property
-    def origin_review_text(self):
-        return self.review_text
-
-    @property
     def latest_review_text(self):
         latest_revision = self.review_revisions.get_latest_revision()
         return latest_revision.review_text if latest_revision else self.review_text
