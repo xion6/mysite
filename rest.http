@@ -1,24 +1,52 @@
+
+###
 PATCH http://localhost:8000/reviews/update/1/ HTTP/1.1
 content-type: application/json
 
 {
-    "status": 1,
+    "status": 2,
     "review_details": [
         {
             "id": 1,
-            "latest_review_text": "まあまあ満足"
+            "latest_review_text": "そこそこ満足"
         },
         {
             "id": 2,
-            "latest_review_text": "まあまあ満足"
+            "latest_review_text": "そこそこ満足"
         },
         {
             "id": 3,
-            "latest_review_text": "まあまあ満足"
+            "latest_review_text": "そこそこ満足"
         },
         {
             "id": 4,
-            "latest_review_text": "ああああ満足"
+            "latest_review_text": "そこそこ満足"
+        }
+    ]
+}
+
+###
+PATCH http://localhost:8000/reviews/update/2/ HTTP/1.1
+content-type: application/json
+
+{
+    "status": 2,
+    "review_details": [
+        {
+            "id": 5,
+            "latest_review_text": "大変満足"
+        },
+        {
+            "id": 6,
+            "latest_review_text": "大変満足"
+        },
+        {
+            "id": 7,
+            "latest_review_text": "大変満足"
+        },
+        {
+            "id": 8,
+            "latest_review_text": "超満足"
         }
     ]
 }
