@@ -8,6 +8,12 @@ logger = logging.getLogger(__name__)
 
 
 class ReviewDetailSerializer(serializers.ModelSerializer):
+    """各口コミの各項目に対する評価やコメント
+
+    - 参照のみ使用
+    - ReviewSerializer で呼び出して使う
+    """
+
     item_name = serializers.ReadOnlyField(source="item.name")
     latest_review_text = serializers.SerializerMethodField()
 
@@ -37,6 +43,11 @@ class ReviewDetailSerializer(serializers.ModelSerializer):
 
 
 class ReviewSerializer(serializers.ModelSerializer):
+    """口コミの一覧や詳細表示
+
+    - 参照のみ使用
+    """
+
     review_details = ReviewDetailSerializer(many=True, read_only=True)
     source = serializers.ReadOnlyField(source="source.name")
     mst_product = serializers.ReadOnlyField(source="mst_product.name")
