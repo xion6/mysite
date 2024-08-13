@@ -83,8 +83,7 @@ class ReviewUpdateView(generics.UpdateAPIView):
         review.save()
 
         # review_revisionテーブルに行追加
-        review_detail_list = serializer.validated_data["review_details"]
-        for detail_dict in review_detail_list:
+        for detail_dict in serializer.validated_data["review_details"]:
             detail_obj = review.review_details.get(pk=detail_dict["id"])
             latest_revision = detail_obj.review_revisions.get_latest_revision()
 
