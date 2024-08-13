@@ -1,0 +1,24 @@
+PATCH http://localhost:8000/reviews/update/1/ HTTP/1.1
+content-type: application/json
+
+{
+    "status": 1,
+    "review_details": [
+        {
+            "id": 1,
+            "latest_review_text": "まあまあ満足"
+        },
+        {
+            "id": 2,
+            "latest_review_text": "まあまあ満足"
+        },
+        {
+            "id": 3,
+            "latest_review_text": "まあまあ満足"
+        },
+        {
+            "id": 4,
+            "latest_review_text": "ああああ満足"
+        }
+    ]
+}

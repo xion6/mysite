@@ -37,7 +37,7 @@ class ReviewDetailSerializer(serializers.ModelSerializer):
 
 
 class ReviewSerializer(serializers.ModelSerializer):
-    review_detail = ReviewDetailSerializer(many=True, read_only=True)
+    review_details = ReviewDetailSerializer(many=True, read_only=True)
     source = serializers.ReadOnlyField(source="source.name")
     mst_product = serializers.ReadOnlyField(source="mst_product.name")
     status_text = serializers.SerializerMethodField()
@@ -54,7 +54,7 @@ class ReviewSerializer(serializers.ModelSerializer):
             "published_by",
             "published_at",
             "reviewed_at",
-            "review_detail",
+            "review_details",
         )
         read_only_fields = [
             "synergy_id",
@@ -74,3 +74,4 @@ class ReviewFileSerializer(serializers.Serializer):
 
 class ReviewUpdateSerializer(serializers.Serializer):
     status = serializers.ChoiceField(choices=Status.choices)
+    review_details = serializers.ListField(child=serializers.DictField())

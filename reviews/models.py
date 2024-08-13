@@ -1,6 +1,9 @@
 from django.db import models
 from django.db.models import Q
 from django.core.validators import MaxValueValidator, MinValueValidator
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Corporation(models.Model):
@@ -81,7 +84,7 @@ class Review(models.Model):
 
 class ReviewDetail(models.Model):
     review = models.ForeignKey(
-        Review, related_name="review_detail", on_delete=models.CASCADE
+        Review, related_name="review_details", on_delete=models.CASCADE
     )
     item = models.ForeignKey(ReviewItem, on_delete=models.CASCADE)
     review_text = models.TextField("レビュー本文", blank=True, null=True)
